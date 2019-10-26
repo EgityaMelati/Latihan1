@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Latihan1</string>
+    <string name="egitya_melati">Egitya Melati</string>
+    <string-array name="rt_mobile">
+        <item>Egitya Melati</item>
+        <item>Lala</item>
+        <item>Daffa</item>
+        <item>Felano</item>
+        <item>Kusmayda</item>
+        <item>Sukma</item>
+        <item>Queen</item>
+        <item>Keysha</item>
+        <item>Opang</item>
+    </string-array>
+
+    <array name="rt_mobile">
+        <item>@drawable/asik</item>
+        <item>@drawable/ok</item>
+        <item>@drawable/keluarga</item>
+        <item>@drawable/pipel</item>
+        <item>@drawable/single</item>
+        <item>@drawable/town1</item>
+        <item>@drawable/town2</item>
+        <item>@drawable/town3</item>
+        <item>@drawable/ya</item>
+    </array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tambah_data_siswa">Tambah Data Siswa</string>
+    <string name="nama">Nama</string>
+    <string name="masukkan_nama">Masukan Nama</string>
+    <string name="usia">Usia</string>
+    <string name="masukan_usia">Masukan Usia</string>
+    <string name="alamat">Alamat</string>
+    <string name="masukkan_alamat">Masukan Alamat</string>
+    <string name="peminatan_kelas">Peminatan Kelas</string>
+    <string name="pilih">PILIH</string>
+    <string name="kelas_pilihan">Kelas Pilihan</string>
+    <string name="foto_siswa">Foto Siswa</string>
+    <string name="image">Image</string>
+    <string name="ambil_foto">Ambil Foto</string>
+    <string name="simpan">SIMPAN</string>
+    <string name="hello_world">Hello World</string>
+    <string name="detail_siswa">Detail Siswa</string>
+    <string name="jurusan">Jurusan</string>
+    <string name="update">update</string>
+    <string name="hapus">HAPUS</string>
+</resources>

@@ -1,0 +1,69 @@
+package com.example.latihan1.activity
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.provider.SyncStateContract.Helpers.insert
+import com.example.latihan1.R
+import com.example.latihan1.database.StudentContract
+import com.example.latihan1.database.database
+import kotlinx.android.synthetic.main.activity_add_student.*
+import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.selector
+import org.jetbrains.anko.toast
+
+class AddStudentActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_add_student)
+
+        asa_tv_choose_study.onClick {
+            val jurusan = listOf("IPA","IPS","Bahasa")
+            selector("Pilih Jurusan",jurusan){dialog, i ->
+                asa_tv_major.setText(jurusan[i])
+            }
+        }
+
+        asa_btn_save.onClick {
+            if(!validation()){
+                return@onClick
+            }
+            insertDatabase()
+        }
+    }
+    private fun insertDatabase(){
+        database.use{
+            insert(
+                StudentContract.TABLE_STUDENT,
+                StudentContract.NAME to asa_edt_name.text.toString(),
+                StudentContract.AGE to asa_edt_age.text.toString().toInt(),
+                StudentContract.ADDRESS to asa_edt_address.text.toString(),
+                StudentContract.PHOTO to null,
+                StudentContract.MAJORITY to asa_tv_title_major.text.toString()
+            )
+            
+            toast("Berhasil menambah data siswa baru")
+        }
+    }
+    private fun validation(): Boolean{
+        when{
+            asa_edt_name.text.toString().isBlank()-> {
+                asa_edt_name.requestFocus()
+                asa_edt_name.error = "Tidak Boleh Kosong"
+                return false
+            }
+            asa_edt_age.text.toString().isBlank()-> {
+                asa_edt_age.requestFocus()
+                asa_edt_age.error = "Tidak Boleh Kosong"
+                return false
+            }
+            asa_edt_address.text.toString().isBlank() -> {
+                asa_tv_major.requestFocus()
+                asa_tv_major.error = "Tidak Boleh Kosong"
+                return false
+            }
+            else -> return true
+        }
+    }
+}
